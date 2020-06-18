@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Fix CloudWatch metrics for Linux and Android integration tests
+- Fixing the ability to choose default input in browsers when default changes
 
 ## [1.10.0] - 2020-06-23
 
@@ -46,7 +47,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Bump websocket-extensions from 0.1.3 to 0.1.4
-- Update SignalingProtocol.proto and use SDK version in JoinFrame
+- Updated SignalingProtocol.proto and use SDK version in JoinFrame
 
 ### Removed
 
@@ -87,7 +88,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add 'dropped' boolean attribute to realtime interface to indicate attendee drop
 
 ### Changed
-- Support styling and Markdown for meeting demo chat
+- Styling and Markdown support for meeting demo chat
 - Update signaling protocol
 
 ### Removed
@@ -177,7 +178,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.3.0] - 2020-04-17
 
 ### Added
-- Enable the use of send-side bandwidth estimation
+- Enabled the use of send-side bandwidth estimation
 - Add guide for content sharing
 - Display meeting id in the demo app
 - Add additional callback in AudioVideoObserver to indicate video downlink pressure
@@ -208,7 +209,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - Remove unimplemented callbacks remoteDidMuteAudio and remoteDidUnmuteAudio on AudioVideoObserver
 - Remove the minimal demo app
-- Remove incomplete demo and component directories
+- Removed incomplete demo and component directories
 
 ### Fixed
 - Fix retry logic for integration test
@@ -228,8 +229,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Add BITRATES in SdkSignalFrame Type and regenerate corresponding JS and TS protocol files.
 - Add new ContentShareController APIs
-- Add Getting Started guide
-- Add doc guide generator
+- Getting Started guide
+- Doc guide generator
 - Add basic component library setup
 - Add injectable session URL rewrite function to support proxies
 - Add POSTLogger for meeting sessions
@@ -304,12 +305,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Move screen view data connection open and close
 - Improve handling of closed signaling connections
 - Update README.md to clarify when to use npm install
-- Add app quit and meeting leave integration tests and retry for all other tests
+- Adding app quit and meeting leave integration tests and retry for all other tests
 - Limit WebSocket reconnect attempts
-- Refactor default screen sharing session start to fix state corruption bug
+- Refactored default screen sharing session start to fix state corruption bug
 - Update Travis script to separate unit and integration tests into different jobs.
 - Validate session Id and disable extendedDebugging flag for SauceLabs
-- Fix infinite loop when retrying in audio and video integ tests
+- Fixing infinite loop when retrying in audio and video integ tests
 - Make sure both participants in audio and video tests reach finish state before retrying
 - Trigger videoSendBandwidthDidChange and videoReceiveBandwidthDidChange for Safari
 - Do not disconnect video element with different srcObj when destroying video tile
@@ -335,7 +336,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix meeting leave integration tests
 - Reject an unresolved promise when canceling CreateSDPTask
 - Fix Firefox keyframing
-- Fix screen share integration test
+- Fixing screen share integration test
 - Fix null or empty device handling
 - Fix demo screen share button states
 - Fix bug that caused screenview to stay off when screenshare was toggled
@@ -343,16 +344,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fix preview not switching issue and stop track during disconnect
 - Reset connectionHealthData before (re)connection
 - Fix a bug that prevented device change from triggering observers
-- Fix serverless demo deployment scripts
-- Fix integration test timeout and test sync between runs browsers
-- Fix Safari crashes when remote video tiles are added or toggled
+- Fixes for serverless demo deployment scripts
+- Fixing integration test timeout and test sync between runs browsers
+- Safari crashes when remote video tiles are added or toggled
 - Fix unhandled Promise rejection in DefaultScreenSharingSession#start
 - Fix canary deployment script
-- Fix SIP call integration test
+- Fix sip call integration test
 - Fix Travis deployment script
 
 ## [1.0.0] - 2019-11-20
-
-### Added
-
-- Release first version of library
