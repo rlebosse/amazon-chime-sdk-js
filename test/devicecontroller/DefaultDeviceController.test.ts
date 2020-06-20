@@ -621,8 +621,8 @@ describe('DefaultDeviceController', () => {
         },
       };
       deviceController.addDeviceChangeObserver(observer);
+      deviceController.forEachObserver((_observer: DeviceChangeObserver) => {});
       // The device controller calls observer methods in the next event cycle.
-      await navigator.mediaDevices.dispatchEvent(new Event('devicechange'));
       // Right before calling observer methods, remove observers.
       deviceController.removeDeviceChangeObserver(observer);
       await new Promise(resolve => new TimeoutScheduler(100).start(resolve));

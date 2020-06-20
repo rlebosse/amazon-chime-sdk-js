@@ -3,6 +3,7 @@
 
 import DeviceChangeObserver from '../devicechangeobserver/DeviceChangeObserver';
 import Device from './Device';
+import DeviceControllerFacade from './DeviceControllerFacade';
 import DevicePermission from './DevicePermission';
 
 /**
@@ -38,7 +39,7 @@ import DevicePermission from './DevicePermission';
  * }
  * ```
  */
-export default interface DeviceController {
+export default interface DeviceController extends DeviceControllerFacade {
   /**
    * Lists currently available audio input devices.
    */
@@ -84,6 +85,12 @@ export default interface DeviceController {
    * Removes an observer to stop receiving callbacks about device changes.
    */
   removeDeviceChangeObserver(observer: DeviceChangeObserver): void;
+
+  /**
+   * Iterates through each observer, so that their notification functions may
+   * be called.
+   */
+  forEachObserver(observerFunc: (observer: DeviceChangeObserver) => void): void;
 
   /**
    * Gets an AnalyserNode from the current audio input. This node can be used to
