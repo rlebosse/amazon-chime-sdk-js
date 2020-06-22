@@ -1,4 +1,4 @@
-// Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2019-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 
 import DeviceChangeObserver from '../devicechangeobserver/DeviceChangeObserver';
@@ -36,6 +36,8 @@ export default class NoOpDeviceController extends NoOpMediaStreamBroker
   addDeviceChangeObserver(_observer: DeviceChangeObserver): void {}
 
   removeDeviceChangeObserver(_observer: DeviceChangeObserver): void {}
+
+  forEachObserver(_observerFunc: (_observer: DeviceChangeObserver) => void): void {}
 
   createAnalyserNodeForAudioInput(): AnalyserNode | null {
     return null;

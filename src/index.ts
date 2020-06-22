@@ -49,6 +49,7 @@ import DefaultClientMetricReport from './clientmetricreport/DefaultClientMetricR
 import DefaultContentShareController from './contentsharecontroller/DefaultContentShareController';
 import DefaultDOMWebSocket from './domwebsocket/DefaultDOMWebSocket';
 import DefaultDOMWebSocketFactory from './domwebsocket/DefaultDOMWebSocketFactory';
+import DefaultDeviceChangeEventController from './devicechangeeventcontroller/DefaultDeviceChangeEventController';
 import DefaultDeviceController from './devicecontroller/DefaultDeviceController';
 import DefaultDevicePixelRatioMonitor from './devicepixelratiomonitor/DefaultDevicePixelRatioMonitor';
 import DefaultDragObserver from './dragobserver/DefaultDragObserver';
@@ -92,9 +93,12 @@ import DefaultVideoTileFactory from './videotilefactory/DefaultVideoTileFactory'
 import DefaultVolumeIndicatorAdapter from './volumeindicatoradapter/DefaultVolumeIndicatorAdapter';
 import DefaultWebSocketAdapter from './websocketadapter/DefaultWebSocketAdapter';
 import Device from './devicecontroller/Device';
+import DeviceChangeEventController from './devicechangeeventcontroller/DeviceChangeEventController';
+import DeviceChangeEventObserver from './devicechangeeventobserver/DeviceChangeEventObserver';
 import DeviceChangeObserver from './devicechangeobserver/DeviceChangeObserver';
 import DeviceController from './devicecontroller/DeviceController';
 import DeviceControllerBasedMediaStreamBroker from './mediastreambroker/DeviceControllerBasedMediaStreamBroker';
+import DeviceControllerFacade from './devicecontroller/DeviceControllerFacade';
 import DevicePermission from './devicecontroller/DevicePermission';
 import DevicePixelRatioMonitor from './devicepixelratiomonitor/DevicePixelRatioMonitor';
 import DevicePixelRatioObserver from './devicepixelratioobserver/DevicePixelRatioObserver';
@@ -346,6 +350,7 @@ export {
   DefaultContentShareController,
   DefaultDOMWebSocket,
   DefaultDOMWebSocketFactory,
+  DefaultDeviceChangeEventController,
   DefaultDeviceController,
   DefaultDevicePixelRatioMonitor,
   DefaultDragObserver,
@@ -389,9 +394,12 @@ export {
   DefaultVolumeIndicatorAdapter,
   DefaultWebSocketAdapter,
   Device,
+  DeviceChangeEventController,
+  DeviceChangeEventObserver,
   DeviceChangeObserver,
   DeviceController,
   DeviceControllerBasedMediaStreamBroker,
+  DeviceControllerFacade,
   DevicePermission,
   DevicePixelRatioMonitor,
   DevicePixelRatioObserver,

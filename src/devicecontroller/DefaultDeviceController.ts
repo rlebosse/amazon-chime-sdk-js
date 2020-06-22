@@ -2,6 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import AudioVideoController from '../audiovideocontroller/AudioVideoController';
+import DefaultDeviceChangeEventController from '../devicechangeeventcontroller/DefaultDeviceChangeEventController';
+import DeviceChangeEventController from '../devicechangeeventcontroller/DeviceChangeEventController';
+import DeviceChangeEventObserver from '../devicechangeeventobserver/DeviceChangeEventObserver';
 import DeviceChangeObserver from '../devicechangeobserver/DeviceChangeObserver';
 import Logger from '../logger/Logger';
 import Maybe from '../maybe/Maybe';
@@ -13,7 +16,8 @@ import Device from './Device';
 import DevicePermission from './DevicePermission';
 import DeviceSelection from './DeviceSelection';
 
-export default class DefaultDeviceController implements DeviceControllerBasedMediaStreamBroker {
+export default class DefaultDeviceController
+  implements DeviceControllerBasedMediaStreamBroker, DeviceChangeEventObserver {
   private static permissionGrantedOriginDetectionThresholdMs = 1000;
   private static permissionDeniedOriginDetectionThresholdMs = 500;
   private static defaultVideoWidth = 1280;
@@ -23,6 +27,8 @@ export default class DefaultDeviceController implements DeviceControllerBasedMed
   private static defaultSampleRate = 48000;
   private static defaultSampleSize = 16;
   private static defaultChannelCount = 1;
+
+  private deviceChangeEventController: DeviceChangeEventController;
   private deviceInfoCache: MediaDeviceInfo[] | null = null;
   private activeDevices: { [kind: string]: DeviceSelection | null } = { audio: null, video: null };
   private audioOutputDeviceId: string | null = null;
@@ -58,10 +64,14 @@ export default class DefaultDeviceController implements DeviceControllerBasedMed
     this.logger.info(
       `DefaultDeviceController video dimension ${this.videoWidth} x ${this.videoHeight}`
     );
-    // @ts-ignore
-    navigator.mediaDevices.addEventListener('devicechange', async () => {
-      await this.handleDeviceChange();
-    });
+
+    this.deviceChangeEventController = new DefaultDeviceChangeEventController(logger);
+    this.deviceChangeEventController.registerObserver(this);
+    this.deviceChangeEventController.start();
+  }
+
+  didReceiveDeviceChangeEvent(): void {
+    this.handleDeviceChange();
   }
 
   async listAudioInputDevices(): Promise<MediaDeviceInfo[]> {
@@ -117,6 +127,16 @@ export default class DefaultDeviceController implements DeviceControllerBasedMed
     this.logger.info('removing device change observer');
     this.deviceChangeObservers.delete(observer);
     this.trace('removeDeviceChangeObserver');
+  }
+
+  forEachObserver(observerFunc: (observer: DeviceChangeObserver) => void): void {
+    for (const observer of this.deviceChangeObservers) {
+      new AsyncScheduler().start(() => {
+        if (this.deviceChangeObservers.has(observer)) {
+          observerFunc(observer);
+        }
+      });
+    }
   }
 
   createAnalyserNodeForAudioInput(): AnalyserNode | null {
@@ -451,16 +471,6 @@ export default class DefaultDeviceController implements DeviceControllerBasedMed
       }
     });
     this.alreadyHandlingDeviceChange = false;
-  }
-
-  private forEachObserver(observerFunc: (observer: DeviceChangeObserver) => void): void {
-    for (const observer of this.deviceChangeObservers) {
-      new AsyncScheduler().start(() => {
-        if (this.deviceChangeObservers.has(observer)) {
-          observerFunc(observer);
-        }
-      });
-    }
   }
 
   private areDeviceListsEqual(a: MediaDeviceInfo[], b: MediaDeviceInfo[]): boolean {

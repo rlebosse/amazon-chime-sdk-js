@@ -104,6 +104,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="noopdevicecontroller.html#choosevideoinputquality" class="tsd-kind-icon">choose<wbr>Video<wbr>Input<wbr>Quality</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="noopdevicecontroller.html#createanalysernodeforaudioinput" class="tsd-kind-icon">create<wbr>Analyser<wbr>Node<wbr>For<wbr>Audio<wbr>Input</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="noopdevicecontroller.html#enablewebaudio" class="tsd-kind-icon">enable<wbr>Web<wbr>Audio</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="noopdevicecontroller.html#foreachobserver" class="tsd-kind-icon">for<wbr>Each<wbr>Observer</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="noopdevicecontroller.html#listaudioinputdevices" class="tsd-kind-icon">list<wbr>Audio<wbr>Input<wbr>Devices</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="noopdevicecontroller.html#listaudiooutputdevices" class="tsd-kind-icon">list<wbr>Audio<wbr>Output<wbr>Devices</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="noopdevicecontroller.html#listvideoinputdevices" class="tsd-kind-icon">list<wbr>Video<wbr>Input<wbr>Devices</a></li>
@@ -315,7 +316,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/devicecontrollerbasedmediastreambroker.html">DeviceControllerBasedMediaStreamBroker</a>.<a href="../interfaces/devicecontrollerbasedmediastreambroker.html#choosevideoinputquality">chooseVideoInputQuality</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aws/amazon-chime-sdk-js/blob/master/src/devicecontroller/NoOpDeviceController.ts#L54">src/devicecontroller/NoOpDeviceController.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/aws/amazon-chime-sdk-js/blob/master/src/devicecontroller/NoOpDeviceController.ts#L56">src/devicecontroller/NoOpDeviceController.ts:56</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -348,7 +349,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/devicecontrollerbasedmediastreambroker.html">DeviceControllerBasedMediaStreamBroker</a>.<a href="../interfaces/devicecontrollerbasedmediastreambroker.html#createanalysernodeforaudioinput">createAnalyserNodeForAudioInput</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aws/amazon-chime-sdk-js/blob/master/src/devicecontroller/NoOpDeviceController.ts#L40">src/devicecontroller/NoOpDeviceController.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/aws/amazon-chime-sdk-js/blob/master/src/devicecontroller/NoOpDeviceController.ts#L42">src/devicecontroller/NoOpDeviceController.ts:42</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">AnalyserNode</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
@@ -366,13 +367,54 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/devicecontrollerbasedmediastreambroker.html">DeviceControllerBasedMediaStreamBroker</a>.<a href="../interfaces/devicecontrollerbasedmediastreambroker.html#enablewebaudio">enableWebAudio</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aws/amazon-chime-sdk-js/blob/master/src/devicecontroller/NoOpDeviceController.ts#L61">src/devicecontroller/NoOpDeviceController.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/aws/amazon-chime-sdk-js/blob/master/src/devicecontroller/NoOpDeviceController.ts#L63">src/devicecontroller/NoOpDeviceController.ts:63</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>_flag: <span class="tsd-signature-type">boolean</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="foreachobserver" class="tsd-anchor"></a>
+					<h3>for<wbr>Each<wbr>Observer</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">for<wbr>Each<wbr>Observer<span class="tsd-signature-symbol">(</span>_observerFunc<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>_observer<span class="tsd-signature-symbol">: </span><a href="../interfaces/devicechangeobserver.html" class="tsd-signature-type">DeviceChangeObserver</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/aws/amazon-chime-sdk-js/blob/master/src/devicecontroller/NoOpDeviceController.ts#L40">src/devicecontroller/NoOpDeviceController.ts:40</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>_observerFunc: <span class="tsd-signature-symbol">(</span>_observer<span class="tsd-signature-symbol">: </span><a href="../interfaces/devicechangeobserver.html" class="tsd-signature-type">DeviceChangeObserver</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>_observer<span class="tsd-signature-symbol">: </span><a href="../interfaces/devicechangeobserver.html" class="tsd-signature-type">DeviceChangeObserver</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>_observer: <a href="../interfaces/devicechangeobserver.html" class="tsd-signature-type">DeviceChangeObserver</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -444,7 +486,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/devicecontrollerbasedmediastreambroker.html">DeviceControllerBasedMediaStreamBroker</a>.<a href="../interfaces/devicecontrollerbasedmediastreambroker.html#mixintoaudioinput">mixIntoAudioInput</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aws/amazon-chime-sdk-js/blob/master/src/devicecontroller/NoOpDeviceController.ts#L50">src/devicecontroller/NoOpDeviceController.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/aws/amazon-chime-sdk-js/blob/master/src/devicecontroller/NoOpDeviceController.ts#L52">src/devicecontroller/NoOpDeviceController.ts:52</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -516,7 +558,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/aws/amazon-chime-sdk-js/blob/master/src/devicecontroller/NoOpDeviceController.ts#L48">src/devicecontroller/NoOpDeviceController.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/aws/amazon-chime-sdk-js/blob/master/src/devicecontroller/NoOpDeviceController.ts#L50">src/devicecontroller/NoOpDeviceController.ts:50</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -552,7 +594,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/devicecontrollerbasedmediastreambroker.html">DeviceControllerBasedMediaStreamBroker</a>.<a href="../interfaces/devicecontrollerbasedmediastreambroker.html#startvideopreviewforvideoinput">startVideoPreviewForVideoInput</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aws/amazon-chime-sdk-js/blob/master/src/devicecontroller/NoOpDeviceController.ts#L44">src/devicecontroller/NoOpDeviceController.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/aws/amazon-chime-sdk-js/blob/master/src/devicecontroller/NoOpDeviceController.ts#L46">src/devicecontroller/NoOpDeviceController.ts:46</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -576,7 +618,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/devicecontrollerbasedmediastreambroker.html">DeviceControllerBasedMediaStreamBroker</a>.<a href="../interfaces/devicecontrollerbasedmediastreambroker.html#stopvideopreviewforvideoinput">stopVideoPreviewForVideoInput</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/aws/amazon-chime-sdk-js/blob/master/src/devicecontroller/NoOpDeviceController.ts#L46">src/devicecontroller/NoOpDeviceController.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/aws/amazon-chime-sdk-js/blob/master/src/devicecontroller/NoOpDeviceController.ts#L48">src/devicecontroller/NoOpDeviceController.ts:48</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -638,6 +680,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="noopdevicecontroller.html#enablewebaudio" class="tsd-kind-icon">enable<wbr>Web<wbr>Audio</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="noopdevicecontroller.html#foreachobserver" class="tsd-kind-icon">for<wbr>Each<wbr>Observer</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="noopdevicecontroller.html#listaudioinputdevices" class="tsd-kind-icon">list<wbr>Audio<wbr>Input<wbr>Devices</a>
