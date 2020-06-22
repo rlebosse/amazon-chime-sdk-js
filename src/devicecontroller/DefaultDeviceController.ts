@@ -530,7 +530,11 @@ export default class DefaultDeviceController
         newDevice.stream = stream;
         newDevice.constraints = proposedConstraints;
       } else {
-        newDevice.stream = await navigator.mediaDevices.getUserMedia(proposedConstraints);
+        const proposedConstraintsWithoutGroupId = proposedConstraints && ({ ...proposedConstraints } as MediaStreamConstraints);
+        // @ts-ignore
+        proposedConstraints && delete proposedConstraintsWithoutGroupId.groupId;
+
+        newDevice.stream = await navigator.mediaDevices.getUserMedia(proposedConstraintsWithoutGroupId);
         newDevice.constraints = proposedConstraints;
 
         if (kind === 'video' && this.lastNoVideoInputDeviceCount > callCount) {
@@ -640,6 +644,10 @@ export default class DefaultDeviceController
       return null;
     } else if (typeof device === 'string') {
       trackConstraints.deviceId = { exact: device };
+      const cachedDeviceInfo = this.listCachedDevicesOfKind(`${kind}input`).find((cachedDevice: MediaDeviceInfo) => cachedDevice.deviceId === device);
+      if (cachedDeviceInfo && cachedDeviceInfo.groupId) {
+        trackConstraints.groupId = cachedDeviceInfo.groupId;
+      }
     } else if (stream) {
       // @ts-ignore - create a fake track constraint using the stream id
       trackConstraints.streamId = stream.id;
