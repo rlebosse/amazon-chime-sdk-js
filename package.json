@@ -83,7 +83,6 @@
       "src/screenshareviewfacade/DefaultScreenShareViewFacade.ts",
       "src/activespeakerdetector/DefaultActiveSpeakerDetector.ts",
       "src/activespeakerpolicy/DefaultActiveSpeakerPolicy.ts",
-      "src/devicecontroller/*.ts",
       "src/videodownlinkbandwidthpolicy/VideoAdaptiveProbePolicy.ts"
     ],
     "extension": [
