@@ -377,6 +377,7 @@ export class DemoMeetingApp implements AudioVideoObserver, DeviceChangeObserver,
           this.hideProgress('progress-join');
           this.displayButtonStates();
           this.switchToFlow('flow-meeting');
+          startLocalVideo()
         } catch (error) {
           document.getElementById('failed-join').innerText = `Meeting ID: ${this.meeting}`;
           document.getElementById('failed-join-error').innerText = `Error: ${error.message}`;
@@ -393,20 +394,24 @@ export class DemoMeetingApp implements AudioVideoObserver, DeviceChangeObserver,
       }
     });
 
+    const startLocalVideo = async () => {
+      try {
+        let camera: string = videoInput.value;
+        if (videoInput.value === 'None') {
+          camera = this.cameraDeviceIds.length ? this.cameraDeviceIds[0] : 'None';
+        }
+        await this.openVideoInputFromSelection(camera, false);
+        this.audioVideo.startLocalVideoTile();
+      } catch (err) {
+        this.log('no video input device selected');
+      }
+    };
+
     const buttonVideo = document.getElementById('button-camera');
     buttonVideo.addEventListener('click', _e => {
       new AsyncScheduler().start(async () => {
         if (this.toggleButton('button-camera') && this.canStartLocalVideo) {
-          try {
-            let camera: string = videoInput.value;
-            if (videoInput.value === 'None') {
-              camera = this.cameraDeviceIds.length ? this.cameraDeviceIds[0] : 'None';
-            }
-            await this.openVideoInputFromSelection(camera, false);
-            this.audioVideo.startLocalVideoTile();
-          } catch (err) {
-            this.log('no video input device selected');
-          }
+          startLocalVideo()
         } else {
           this.audioVideo.stopLocalVideoTile();
           this.hideTile(DemoTileOrganizer.MAX_TILES);
