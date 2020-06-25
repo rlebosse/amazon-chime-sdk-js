@@ -452,6 +452,24 @@ export class DemoMeetingApp implements AudioVideoObserver, DeviceChangeObserver,
       });
     });
 
+    document.getElementById('button-preview-during-session-on').addEventListener('click', _e => {
+      new AsyncScheduler().start(async () => {
+        console.log('Click prevew during session on');
+        this.audioVideo.startVideoPreviewForVideoInput(document.getElementById(
+          'video-preview-during-session'
+        ) as HTMLVideoElement);
+      });
+    });
+
+    document.getElementById('button-preview-during-session-off').addEventListener('click', _e => {
+      new AsyncScheduler().start(async () => {
+        console.log('Click prevew during session off');
+        this.audioVideo.stopVideoPreviewForVideoInput(document.getElementById(
+          'video-preview-during-session'
+        ) as HTMLVideoElement);
+      });
+    });
+
     const sendMessage = () => {
       new AsyncScheduler().start(() => {
         const textArea = document.getElementById('send-message') as HTMLTextAreaElement;
