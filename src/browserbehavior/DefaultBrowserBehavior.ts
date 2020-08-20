@@ -38,7 +38,7 @@ export default class DefaultBrowserBehavior implements BrowserBehavior {
   }
 
   version(): string {
-    return this.browser.version;
+    return this.browser?.version;
   }
 
   majorVersion(): number {
@@ -46,12 +46,12 @@ export default class DefaultBrowserBehavior implements BrowserBehavior {
   }
 
   name(): string {
-    return this.browser.name;
+    return this.browser?.name;
   }
 
   hasChromiumWebRTC(): boolean {
     for (const browser of this.chromeLike) {
-      if (browser === this.browser.name) {
+      if (browser === this.browser?.name) {
         return true;
       }
     }
@@ -122,7 +122,7 @@ export default class DefaultBrowserBehavior implements BrowserBehavior {
   }
 
   isSupported(): boolean {
-    return this.majorVersion() >= this.browserSupport[this.browser.name];
+    return this.majorVersion() >= this.browserSupport[this.browser?.name];
   }
 
   supportString(): string {
@@ -155,22 +155,22 @@ export default class DefaultBrowserBehavior implements BrowserBehavior {
   // These helpers should be kept private to encourage
   // feature detection instead of browser detection.
   private isIOSSafari(): boolean {
-    return this.browser.name === 'ios';
+    return this.browser?.name === 'ios';
   }
 
   private isSafari(): boolean {
-    return this.browser.name === 'safari' || this.browser.name === 'ios';
+    return this.browser?.name === 'safari' || this.browser?.name === 'ios';
   }
 
   private isFirefox(): boolean {
-    return this.browser.name === 'firefox';
+    return this.browser?.name === 'firefox';
   }
 
   private isChrome(): boolean {
-    return this.browser.name === 'chrome';
+    return this.browser?.name === 'chrome';
   }
 
   private isEdge(): boolean {
-    return this.browser.name === 'edge-chromium';
+    return this.browser?.name === 'edge-chromium';
   }
 }
