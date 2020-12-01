@@ -4,7 +4,6 @@
 .idea
 .nyc_output
 .npmrc
-build
 coverage
 demos/browser/logs/
 demos/components/node_modules
